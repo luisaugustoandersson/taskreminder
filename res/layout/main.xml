@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Tela Login -->
+<AbsoluteLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"    
+    android:id="@+id/frame"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff3399ff">
+<EditText
+    android:id="@+id/txtLogin"
+    android:layout_width="175dp"
+    android:layout_height="wrap_content"
+    android:text="username"
+    android:layout_x="109dp"
+    android:layout_y="93dp" />
+<EditText
+    android:id="@+id/txtSenha"
+    android:layout_width="175dp"
+    android:layout_height="wrap_content"
+    android:text="password"
+    android:password="true"
+    android:layout_x="110dp"
+    android:layout_y="140dp" />
+<TextView
+    android:id="@+id/labelLogin"
+    android:layout_width="wrap_content"
+    android:layout_height="18dp"
+    android:text="Login:"
+    android:textStyle="bold"
+    android:layout_x="44dp"
+    android:layout_y="102dp" />
+<TextView
+    android:id="@+id/labelSenha"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Senha:"
+    android:textStyle="bold"
+    android:layout_x="44dp"
+    android:layout_y="149dp" />
+<Button
+    android:id="@+id/ButtonEntrar"
+    android:layout_width="75dp"
+    android:layout_height="40dp"
+    android:text="Entrar"
+    android:onClick="onClickBtLogar"
+    android:layout_x="133dp"
+    android:layout_y="247dp" />
+</AbsoluteLayout>
+
+    
