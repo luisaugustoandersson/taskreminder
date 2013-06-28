@@ -42,7 +42,7 @@ public class ListReminder extends Activity {
         
         List<Reminder> completas = rDAO.listaTodos("true");
         
-        Toast.makeText(this,incompletas.size()+"oi", 2000).show();
+        Toast.makeText(this,"-- "+incompletas.size()+" --", 2000).show();
     }
     
     public void onClickBtAddReminder(View v) {
