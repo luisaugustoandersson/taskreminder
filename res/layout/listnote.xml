@@ -12,7 +12,7 @@
 <TextView  
     android:layout_width="174dp"
     android:layout_height="29dp"
-    android:text="Lista de Notes"
+    android:text="Notes"
     android:textSize="20sp"
     android:textStyle="bold"
     android:layout_x="4dp"
