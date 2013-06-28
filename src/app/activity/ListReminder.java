@@ -38,9 +38,11 @@ public class ListReminder extends Activity {
         User user = uDAO.getLogado();
         
         ReminderDAO rDAO = new ReminderDAO(this);
-        List<Reminder> r = rDAO.listaTodos("false");
+        List<Reminder> incompletas = rDAO.listaTodos("false");
         
-        Toast.makeText(this,r.size()+"oi", 2000).show();
+        List<Reminder> completas = rDAO.listaTodos("true");
+        
+        Toast.makeText(this,incompletas.size()+"oi", 2000).show();
     }
     
     public void onClickBtAddReminder(View v) {

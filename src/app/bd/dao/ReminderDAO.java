@@ -26,15 +26,16 @@ public class ReminderDAO {
         List<Reminder> listaReminder = new ArrayList<Reminder>();
         BaseDados bd = new BaseDados(this.context);
         SQLiteDatabase conn = bd.getWritableDatabase();
-        Cursor cursor = conn.rawQuery("SELECT * FROM REMINDER", null);
+        Cursor cursor = conn.rawQuery("SELECT * FROM reminder;", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             Reminder rem = new Reminder();
             rem.setCod(cursor.getInt(0));
             rem.setDescricao(cursor.getString(1));
-            rem.setUser_id(cursor.getInt(2));
-            rem.setSync(cursor.getString(3));
-            if (cursor.getString(3).equals(completo)) {
+            rem.setCompleto(cursor.getString(2));
+            rem.setUser_id(cursor.getInt(3));
+            rem.setSync(cursor.getString(4));
+            if (rem.getCompleto().equals(completo)) {
                 listaReminder.add(rem);
             }
             cursor.moveToNext();
@@ -51,7 +52,7 @@ public class ReminderDAO {
         valores.put("completo", rem.getCompleto());
         valores.put("user_id", rem.getUser_id());
         valores.put("sync", rem.getSync());
-        if (conn.insert("reminder", null, valores) > 0){
+        if (conn.insert("reminder", null, valores) > 0) {
             System.out.println("wooow");
         }
         System.out.println("no :(");

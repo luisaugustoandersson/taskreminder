@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import app.bd.bean.Note;
+import app.bd.dao.NoteDAO;
 import app.bd.dao.ReminderDAO;
 
 /**
@@ -26,21 +28,22 @@ public class CreateNote extends Activity {
         super.onCreate(icicle);
         setContentView(R.layout.createnote);
         Bundle bundle = this.getIntent().getExtras();
-        // ToDo add your GUI initialization code here        
         
     }
     public void onClickBtSalvarNote(View v) {
-//        EditText txtTitulo = (EditText) findViewById(R.id.txttitulo);
         EditText txtDescri = (EditText) findViewById(R.id.txtdescricao);
-        ReminderDAO notesDAO = new ReminderDAO(this);
-//        Departamento dept = new Departamento();
-//        dept.setDescricao(txtMsg1Tela1.getText().toString());
-//        deptDAO.create(dept);
+        NoteDAO nDAO= new NoteDAO(this);
+        
+        Note note = new Note();
+        note.setDescricao(txtDescri.getText().toString());
+        note.setSync("false");
+        note.setUser_id(1);
+        
+        nDAO.create(note);
+        
         
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
-//        bundle.putString("vlrRetorno", txtTitulo.getText().toString());
-        bundle.putString("vlrRetorno", txtDescri.getText().toString());
         intent.putExtras(bundle);
         setResult(RESULT_OK, intent);
         finish();

@@ -25,7 +25,7 @@ public class NoteDAO {
         List<Note> listaNotes = new ArrayList<Note>();
         BaseDados bd = new BaseDados(this.context);
         SQLiteDatabase conn = bd.getWritableDatabase();
-        Cursor cursor = conn.rawQuery("SELECT * FROM NOTE", null);
+        Cursor cursor = conn.rawQuery("SELECT * FROM note;", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             Note note = new Note();
