@@ -12,7 +12,7 @@
     android:layout_height="wrap_content"
     android:text=""
     android:layout_x="109dp"
-    android:layout_y="93dp" />
+    android:layout_y="90dp" />
 <EditText
     android:id="@+id/txtSenha"
     android:layout_width="175dp"
@@ -26,7 +26,7 @@
     android:layout_height="wrap_content"
     android:text=""
     android:layout_x="109dp"
-    android:layout_y="193dp" />
+    android:layout_y="190dp" />
 <EditText
     android:id="@+id/txtEmail"
     android:layout_width="175dp"
@@ -34,31 +34,47 @@
     android:text=""
     android:password="true"
     android:layout_x="109dp"
-    android:layout_y="253dp" />
+    android:layout_y="240dp" />
 <TextView
     android:id="@+id/labelLogin"
     android:layout_width="wrap_content"
     android:layout_height="18dp"
     android:text="Login:"
     android:textStyle="bold"
-    android:layout_x="44dp"
-    android:layout_y="102dp" />
+    android:layout_x="27dp"
+    android:layout_y="100dp" />
 <TextView
     android:id="@+id/labelSenha"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Senha:"
     android:textStyle="bold"
-    android:layout_x="44dp"
+    android:layout_x="27dp"
     android:layout_y="149dp" />
+<TextView
+    android:id="@+id/labelNovaSenha"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Nova Senha:"
+    android:textStyle="bold"
+    android:layout_x="27dp"
+    android:layout_y="196dp" />
+<TextView
+    android:id="@+id/labelEmail"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Email:"
+    android:textStyle="bold"
+    android:layout_x="27dp"
+    android:layout_y="243dp" />
 <Button
     android:id="@+id/ButtonRegistrar"
     android:layout_width="75dp"
     android:layout_height="40dp"
-    android:text="Entrar"
+    android:text="Salvar"
     android:onClick="onClickBtRegistrar"
     android:layout_x="133dp"
-    android:layout_y="247dp" />
+    android:layout_y="315dp" />
 </AbsoluteLayout>
 
     

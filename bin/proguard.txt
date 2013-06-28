@@ -26,7 +26,7 @@
 -keepclassmembers class * { *** onClickBtLogar(...); }
 
 # onClick res/layout/main.xml #generated:48
-# onClick res/layout/register.xml #generated:54
+# onClick res/layout/register.xml #generated:70
 -keepclassmembers class * { *** onClickBtRegistrar(...); }
 
 # onClick res/layout/createnote.xml #generated:41

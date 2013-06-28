@@ -5,7 +5,9 @@
 package app.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 /**
  *
@@ -21,5 +23,9 @@ public class Register extends Activity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
+    }
+    public void onClickBtRegistrar(View v) {
+//        Intent intent = new Intent(this, Register.class);
+//        startActivityForResult(intent, 0);
     }
 }
