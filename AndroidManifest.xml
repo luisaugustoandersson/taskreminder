@@ -19,5 +19,7 @@
                   android:label="TaskReminder"/>
         <activity android:name="CreateNote"
                   android:label="TaskReminder"/>
+        <activity android:name="Register"
+                  android:label="TaskReminder"/>
     </application>
 </manifest> 

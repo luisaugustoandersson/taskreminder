@@ -12,6 +12,7 @@
 /home/luis/NetBeansProjects/DOOIII/TaskReminder/bin/classes/app/activity/R$string.class \
 /home/luis/NetBeansProjects/DOOIII/TaskReminder/bin/classes/app/activity/R$layout.class \
 /home/luis/NetBeansProjects/DOOIII/TaskReminder/bin/classes/app/activity/R$attr.class \
+/home/luis/NetBeansProjects/DOOIII/TaskReminder/bin/classes/app/activity/Register.class \
 /home/luis/NetBeansProjects/DOOIII/TaskReminder/bin/classes/app/activity/ListReminder.class \
 /home/luis/NetBeansProjects/DOOIII/TaskReminder/bin/classes/app/activity/R$id.class \
 /home/luis/NetBeansProjects/DOOIII/TaskReminder/bin/classes/app/activity/ListNote.class \

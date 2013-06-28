@@ -18,5 +18,11 @@ public class TaskReminder extends Activity
         Intent intent = new Intent(this, ListReminder.class);
         startActivityForResult(intent, 0);
     }
+    public void onClickBtRegistrar(View v) {
+        Intent intent = new Intent(this, Register.class);
+        startActivityForResult(intent, 0);
+    }
+    
+    
         
 }
