@@ -21,7 +21,7 @@ import java.net.URL;
 public class Syncronize {
 
     private static Syncronize sync = new Syncronize();
-    private String BASE_URL = "http://192.168.0.13:3000";
+    private String BASE_URL = "http://trab-doo-3.herokuapp.com";
 
     public static Syncronize getSession() {
         return sync;
