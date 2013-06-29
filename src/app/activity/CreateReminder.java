@@ -42,7 +42,7 @@ public class CreateReminder extends Activity {
         
         EditText txtdescricao = (EditText) findViewById(R.id.txtdescricao);
         rem.setDescricao(txtdescricao.getText().toString());
-        rem.setCompleto("false");
+        rem.setCompleto("true");
         rem.setUser_id(user.getCod());
         rem.setSync("false");
         remDAO.create(rem);

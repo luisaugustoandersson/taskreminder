@@ -16,22 +16,22 @@
 # view AndroidManifest.xml #generated:7
 -keep class app.activity.TaskReminder { <init>(...); }
 
-# onClick res/layout/listnote.xml #generated:21
+# onClick res/layout/listnote.xml #generated:22
 -keepclassmembers class * { *** onClickBtAddNote(...); }
 
-# onClick res/layout/listreminder.xml.xml #generated:21
+# onClick res/layout/listreminder.xml.xml #generated:22
 -keepclassmembers class * { *** onClickBtAddReminder(...); }
 
 # onClick res/layout/main.xml #generated:40
 -keepclassmembers class * { *** onClickBtLogar(...); }
 
 # onClick res/layout/main.xml #generated:48
-# onClick res/layout/register.xml #generated:70
+# onClick res/layout/register.xml #generated:71
 -keepclassmembers class * { *** onClickBtRegistrar(...); }
 
-# onClick res/layout/createnote.xml #generated:41
+# onClick res/layout/createnote.xml #generated:42
 -keepclassmembers class * { *** onClickBtSalvarNote(...); }
 
-# onClick res/layout/createreminder.xml #generated:41
+# onClick res/layout/createreminder.xml #generated:42
 -keepclassmembers class * { *** onClickBtSalvarReminder(...); }
 

@@ -1,0 +1,19 @@
+TextView txtcompletos = (TextView) findViewById(R.id.txtnumerocompletos);
+        txtcompletos.setText(String.valueOf(completas.size()));
+        
+        ListView listareminders = (ListView) findViewById(R.id.listtarefas);
+        
+        
+        Iterator<Reminder> iterator = incompletas.iterator();
+        
+        List<String> data= new ArrayList<String>();
+        
+        while (iterator.hasNext()){
+            data.add(iterator.next().getDescricao());
+        }
+        
+        ArrayAdapter<String> list = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+        listareminders.setAdapter(list);
+
+
+    }

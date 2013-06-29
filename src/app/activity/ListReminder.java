@@ -11,11 +11,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import app.bd.bean.Reminder;
 import app.bd.bean.User;
 import app.bd.dao.ReminderDAO;
 import app.bd.dao.UserDAO;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -42,6 +46,24 @@ public class ListReminder extends Activity {
         
         List<Reminder> completas = rDAO.listaTodos("true");
         
+        TextView txtcompletos = (TextView) findViewById(R.id.txtnumerocompletos);
+        txtcompletos.setText(String.valueOf(completas.size()));
+        
+        ListView listareminders = (ListView) findViewById(R.id.listtarefas);
+        
+        
+        Iterator<Reminder> iterator = incompletas.iterator();
+        
+        List<String> data= new ArrayList<String>();
+        
+        while (iterator.hasNext()){
+            data.add(iterator.next().getDescricao());
+        }
+        
+        ArrayAdapter<String> list = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+        listareminders.setAdapter(list);
+
+
     }
     
     public void onClickBtAddReminder(View v) {

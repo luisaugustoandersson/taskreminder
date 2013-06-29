@@ -1,2 +1,2 @@
-/home/luis/NetBeansProjects/DOOIII/TaskReminder/bin/AndroidManifest.xml : \
-/home/luis/NetBeansProjects/DOOIII/TaskReminder/AndroidManifest.xml \
+/home/luis/NetBeansProjects/DOOIII/taskreminder/bin/AndroidManifest.xml : \
+/home/luis/NetBeansProjects/DOOIII/taskreminder/AndroidManifest.xml \
