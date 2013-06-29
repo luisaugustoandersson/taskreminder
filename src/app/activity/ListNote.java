@@ -28,7 +28,6 @@ public class ListNote extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listnote);
         List<Note> notes = new NoteDAO(this).listaTodos();
-        Toast.makeText(this,"-- "+notes.size()+" --", 2000).show();
     }
     public void onClickBtAddNote(View v) {
         Intent intent = new Intent(this, CreateNote.class);

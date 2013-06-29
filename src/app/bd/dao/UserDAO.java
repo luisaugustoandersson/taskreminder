@@ -26,15 +26,19 @@ public class UserDAO {
     public User getLogado() {
         BaseDados bd = new BaseDados(this.context);
         SQLiteDatabase conn = bd.getWritableDatabase();
-        Cursor cursor = conn.rawQuery("SELECT * FROM USER", null);
-        cursor.moveToLast();
+        Cursor cursor = conn.rawQuery("SELECT * FROM user;", null);
+        cursor.moveToFirst();
         User user = new User();
-        user.setCod(cursor.getInt(0));
-        user.setNome(cursor.getString(1));
-        user.setEmail(cursor.getString(2));
-        user.setSenha(cursor.getString(3));
+        if (cursor.isLast()) {
+            user.setCod(cursor.getInt(0));
+            user.setNome(cursor.getString(1));
+            user.setEmail(cursor.getString(2));
+            user.setSenha(cursor.getString(3));
+            conn.close();
+            return user;
+        }
         conn.close();
-        return user;
+        return null;
     }
 
     public void create(User user) {
