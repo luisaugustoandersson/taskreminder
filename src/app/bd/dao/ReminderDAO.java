@@ -48,6 +48,7 @@ public class ReminderDAO {
         BaseDados bd = new BaseDados(this.context);
         SQLiteDatabase conn = bd.getWritableDatabase();
         ContentValues valores = new ContentValues(5);
+        valores.put("cod", rem.getCod());
         valores.put("descricao", rem.getDescricao());
         valores.put("completo", rem.getCompleto());
         valores.put("user_id", rem.getUser_id());
@@ -63,6 +64,7 @@ public class ReminderDAO {
         BaseDados bd = new BaseDados(this.context);
         SQLiteDatabase conn = bd.getWritableDatabase();
         ContentValues valores = new ContentValues(4);
+        valores.put("cod", rem.getCod());
         valores.put("descricao", rem.getDescricao());
         valores.put("completo", rem.getCompleto());
         valores.put("user_id", rem.getUser_id());

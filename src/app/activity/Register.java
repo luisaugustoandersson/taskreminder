@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import app.bd.bean.User;
 import app.bd.dao.UserDAO;
+import app.sync.Syncronize;
 
 /**
  *
@@ -33,23 +34,27 @@ public class Register extends Activity {
         EditText emailRaw = (EditText) findViewById(R.id.txtEmail);
         EditText passwordRaw = (EditText) findViewById(R.id.txtSenha);
         EditText verifypasswordRaw = (EditText) findViewById(R.id.txtNovaSenha);
-        
+
         String name = nameRaw.getText().toString();
         String email = emailRaw.getText().toString();
         String password = passwordRaw.getText().toString();
-        String verifypassword = verifypasswordRaw.getText().toString();
-        
+        String verifyPassword = verifypasswordRaw.getText().toString();
+
         User u = new User();
         u.setEmail(email);
         u.setNome(name);
         u.setSenha(password);
-        
-        new UserDAO(this).create(u);
-        
-        Toast.makeText(this,"-- WELCOME --", 2000).show();
 
-        Intent intent = new Intent(this, ListReminder.class);
-        startActivityForResult(intent, 0);
-        
+        Syncronize sync = Syncronize.getSession();
+        String id = sync.newUser(u);
+
+        if (id != null) {
+            u.setCod(Integer.parseInt(id));
+            new UserDAO(this).create(u);
+            Toast.makeText(this, "-- WELCOME --", 2000).show();
+            Intent intent = new Intent(this, ListReminder.class);
+            startActivity(intent);
+
+        }
     }
 }

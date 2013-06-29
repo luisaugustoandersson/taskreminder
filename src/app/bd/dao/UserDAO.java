@@ -45,6 +45,7 @@ public class UserDAO {
         BaseDados bd = new BaseDados(this.context);
         SQLiteDatabase conn = bd.getWritableDatabase();
         ContentValues valores = new ContentValues(1);
+        valores.put("cod", user.getCod());
         valores.put("nome", user.getNome());
         valores.put("email", user.getEmail());
         valores.put("senha", user.getSenha());

@@ -11,8 +11,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import app.bd.bean.Note;
+import app.bd.bean.User;
 import app.bd.dao.NoteDAO;
 import app.bd.dao.ReminderDAO;
+import app.bd.dao.UserDAO;
+import app.sync.Syncronize;
 
 /**
  *
@@ -32,20 +35,20 @@ public class CreateNote extends Activity {
     }
     public void onClickBtSalvarNote(View v) {
         EditText txtDescri = (EditText) findViewById(R.id.txtdescricao);
-        NoteDAO nDAO= new NoteDAO(this);
-        
+       
         Note note = new Note();
         note.setDescricao(txtDescri.getText().toString());
         note.setSync("false");
-        note.setUser_id(1);
+        note.setUser_id(new UserDAO(this).getLogado().getCod());
         
-        nDAO.create(note);
+        Syncronize sync = Syncronize.getSession();
+        String id = sync.SyncNotes(note, true);
         
+        note.setCod(Integer.parseInt(id));
+ 
+        new NoteDAO(this).create(note);
         
-        Intent intent = new Intent();
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
-        setResult(RESULT_OK, intent);
-        finish();
+        Intent intent = new Intent(this, ListNote.class);
+        startActivity(intent);
     }
 }

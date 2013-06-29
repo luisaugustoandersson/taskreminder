@@ -44,6 +44,7 @@ public class NoteDAO {
         BaseDados bd = new BaseDados(this.context);
         SQLiteDatabase conn = bd.getWritableDatabase();
         ContentValues valores = new ContentValues(1);
+        valores.put("cod", note.getCod());
         valores.put("descricao", note.getDescricao());
         valores.put("user_id", note.getUser_id());
         valores.put("sync", note.getSync());
@@ -55,6 +56,7 @@ public class NoteDAO {
         BaseDados bd = new BaseDados(this.context);
         SQLiteDatabase conn = bd.getWritableDatabase();
         ContentValues valores = new ContentValues(1);
+        valores.put("cod", note.getCod());
         valores.put("descricao", note.getDescricao());
         valores.put("user_id", note.getUser_id());
         valores.put("sync", note.getSync());

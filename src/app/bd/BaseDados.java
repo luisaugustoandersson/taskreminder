@@ -12,7 +12,7 @@ import android.util.Log;
 public class BaseDados extends SQLiteOpenHelper {
 
     public BaseDados(Context context) {
-        super(context, "BDTASKREMINDER", null, 1);
+        super(context, "BDTASKREMINDER2", null, 1);
     }
 
     @Override
@@ -20,21 +20,18 @@ public class BaseDados extends SQLiteOpenHelper {
         
      
         db.execSQL(
-        "CREATE TABLE user (cod INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, email TEXT NOT NULL, senha TEXT NOT NULL);"
+        "CREATE TABLE user (cod INTEGER NOT NULL, nome TEXT NOT NULL, email TEXT NOT NULL, senha TEXT NOT NULL);"
         );
         
         db.execSQL(
-        "CREATE TABLE reminder (cod INTEGER PRIMARY KEY AUTOINCREMENT, descricao TEXT NOT NULL, completo TEXT NOT NULL, user_id INTEGER, sync TEXT NOT NULL, FOREIGN KEY (user_id) REFERENCES user (id));"
+        "CREATE TABLE reminder (cod INTEGER NOT NULL, descricao TEXT NOT NULL, completo TEXT NOT NULL, user_id INTEGER, sync TEXT NOT NULL, FOREIGN KEY (user_id) REFERENCES user (id));"
         );
         
         db.execSQL(
-                "CREATE TABLE note (cod INTEGER PRIMARY KEY AUTOINCREMENT, descricao TEXT NOT NULL, "
+                "CREATE TABLE note (cod INTEGER NOT NULL, descricao TEXT NOT NULL, "
                 +"user_id INTEGER, sync TEXT NOT NULL);"
         );
         
-        db.execSQL(
-        "INSERT INTO user(cod, nome, email, senha) values(1,\"oie\",\"teste@teste.com.br\", 123)"
-        );
     }
 
     @Override

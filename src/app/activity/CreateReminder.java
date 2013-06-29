@@ -15,6 +15,7 @@ import app.bd.bean.Reminder;
 import app.bd.bean.User;
 import app.bd.dao.ReminderDAO;
 import app.bd.dao.UserDAO;
+import app.sync.Syncronize;
 
 /**
  *
@@ -31,26 +32,31 @@ public class CreateReminder extends Activity {
         setContentView(R.layout.createreminder);
         Bundle bundle = this.getIntent().getExtras();
         // ToDo add your GUI initialization code here        
-        
+
     }
+
     public void onClickBtSalvarReminder(View v) {
-        ReminderDAO remDAO = new ReminderDAO(this);
-        Reminder rem = new Reminder();
-        
-        UserDAO uDAO = new UserDAO(this);
-        User user = uDAO.getLogado();
-        
         EditText txtdescricao = (EditText) findViewById(R.id.txtdescricao);
-        rem.setDescricao(txtdescricao.getText().toString());
-        rem.setCompleto("true");
-        rem.setUser_id(user.getCod());
-        rem.setSync("false");
-        remDAO.create(rem);
-        
-        Intent intent = new Intent();
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
-        setResult(RESULT_OK, intent);
-        finish();
+
+        String value = txtdescricao.getText().toString();
+
+        if (value != null && value.trim() != "") {
+            Reminder rem = new Reminder();
+            rem.setDescricao(txtdescricao.getText().toString());
+            rem.setCompleto("false");
+            rem.setUser_id(new UserDAO(this).getLogado().getCod());
+
+            Syncronize sync = Syncronize.getSession();
+            String id = sync.SyncReminder(rem, true);
+
+            rem.setCod(Integer.parseInt(id));
+
+            rem.setSync("true");
+
+            new ReminderDAO(this).create(rem);
+
+        }
+        Intent intent = new Intent(this, ListReminder.class);
+        startActivity(intent);
     }
 }
