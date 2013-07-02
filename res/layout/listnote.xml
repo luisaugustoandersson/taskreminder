@@ -40,7 +40,7 @@
 	android:layout_height="305dp"
 	android:layout_marginTop="5dp">
 <ListView
-	android:id="@+id/listtarefas"
+	android:id="@+id/listnotes"
 	android:layout_width="305dp"
 	android:layout_height="295dp"
 	android:drawSelectorOnTop="true"
