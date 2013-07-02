@@ -56,9 +56,9 @@ public class Syncronize {
         try {
             URL urlObj;
             if (create) {
-                urlObj = new URL(this.BASE_URL + "/sync/reminders/" + rem.getCod() + "/" + rem.getDescricao() + "/" + rem.getCompleto() + "/" + rem.getUser_id() + ".json");
+                urlObj = new URL(this.BASE_URL + "/sync/reminders/" + rem.getDescricao() + "/" + rem.getCompleto() + "/" + rem.getUser_id() + ".json");
             } else {
-                urlObj = new URL(this.BASE_URL + "/sync/reminders/" + rem.getCod() + "/" + rem.getCod() + "/" + rem.getDescricao() + "/" + rem.getCompleto() + "/" + rem.getUser_id() + ".json");
+                urlObj = new URL(this.BASE_URL + "/sync/reminders/" + rem.getCod() + "/" + rem.getDescricao() + "/" + rem.getCompleto() + "/" + rem.getUser_id() + ".json");
 
             }
             HttpURLConnection httpConn = (HttpURLConnection) urlObj.openConnection();

@@ -12,7 +12,7 @@ import android.util.Log;
 public class BaseDados extends SQLiteOpenHelper {
 
     public BaseDados(Context context) {
-        super(context, "BDTASKREMINDER2", null, 1);
+        super(context, "BDTASKREMINDER5", null, 1);
     }
 
     @Override
