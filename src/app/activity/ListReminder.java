@@ -36,6 +36,9 @@ public class ListReminder extends Activity {
     private int lastPosition;
     private View selectedView;
     ListView listareminders;
+    ReminderDAO rDAO;
+    private ListReminder listclass;
+    String reminderSelected;
 
     /**
      * Called when the activity is first created.
@@ -45,10 +48,12 @@ public class ListReminder extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listreminder);
 
+        listclass = this;
+        
         UserDAO uDAO = new UserDAO(this);
         User user = uDAO.getLogado();
 
-        ReminderDAO rDAO = new ReminderDAO(this);
+        rDAO = new ReminderDAO(this);
         List<Reminder> incompletas = rDAO.listaTodos("false");
 
         List<Reminder> completas = rDAO.listaTodos("true");
@@ -75,14 +80,19 @@ public class ListReminder extends Activity {
                 AlertDialog.Builder adb = new AlertDialog.Builder(
                         ListReminder.this);
                 adb.setTitle("Finalizar esta Tarefa?");
-                adb.setMessage(""+listareminders.getItemAtPosition(position));
-                adb.setPositiveButton("Sim", null);
+                reminderSelected = String.valueOf(listareminders.getItemAtPosition(position));
+                adb.setMessage(reminderSelected);
+                adb.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        rDAO.setCompleted(reminderSelected);
+                        Intent intent = new Intent(listclass , ListReminder.class);
+                        startActivity(intent);
+                    }
+                });
                 adb.setNegativeButton("Não", null);
                 adb.show();
             }
         });
-
-
     }
 
     public void onClickBtAddReminder(View v) {
@@ -108,5 +118,4 @@ public class ListReminder extends Activity {
                 return super.onContextItemSelected(item);
         }
     }
-
 }

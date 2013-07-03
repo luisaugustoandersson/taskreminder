@@ -72,4 +72,21 @@ public class ReminderDAO {
         conn.update("reminder", valores, "cod = " + rem.getCod(), null);
         conn.close();
     }
+
+    public void setCompleted(String descricao) {
+        BaseDados bd = new BaseDados(this.context);
+        SQLiteDatabase conn = bd.getWritableDatabase();
+
+        Cursor cursor = conn.rawQuery("SELECT * FROM reminder;", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            if (cursor.getString(1).equals(descricao)) {
+                ContentValues valores = new ContentValues(4);
+                valores.put("completo", true);
+                conn.update("reminder", valores, "cod = " + cursor.getInt(0), null);
+            }   
+            cursor.moveToNext();
+        }        
+        conn.close();
+    }
 }
