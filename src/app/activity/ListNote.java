@@ -5,18 +5,16 @@
 package app.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 import app.bd.bean.Note;
-import app.bd.bean.Reminder;
 import app.bd.bean.User;
 import app.bd.dao.NoteDAO;
-import app.bd.dao.ReminderDAO;
 import app.bd.dao.UserDAO;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -31,6 +29,8 @@ public class ListNote extends Activity {
     /**
      * Called when the activity is first created.
      */
+    private ListView listanotes;
+    
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -44,7 +44,7 @@ public class ListNote extends Activity {
         
         List<Note> notes = nDAO.listaTodos();
        
-        ListView listanotes = (ListView) findViewById(R.id.listnotes);
+        listanotes = (ListView) findViewById(R.id.listnotes);
         
         
         Iterator<Note> iterator = notes.iterator();
@@ -57,6 +57,12 @@ public class ListNote extends Activity {
         
         ArrayAdapter<String> list = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
         listanotes.setAdapter(list);
+        
+        listanotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> arg0, View v, int position, long id) {
+                
+            }
+        });
         
     }
     public void onClickBtAddNote(View v) {
