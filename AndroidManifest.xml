@@ -21,6 +21,8 @@
                   android:label="TaskReminder"/>
         <activity android:name="Register"
                   android:label="TaskReminder"/>
+        <activity android:name="DescriptionNote"
+                  android:label="TaskReminder"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest> 

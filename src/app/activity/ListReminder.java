@@ -39,7 +39,9 @@ public class ListReminder extends Activity {
     ReminderDAO rDAO;
     private ListReminder listclass;
     String reminderSelected;
-
+    private List<Reminder> incompletas;
+    private List<Reminder> completas;
+    
     /**
      * Called when the activity is first created.
      */
@@ -54,9 +56,8 @@ public class ListReminder extends Activity {
         User user = uDAO.getLogado();
 
         rDAO = new ReminderDAO(this);
-        List<Reminder> incompletas = rDAO.listaTodos("false");
-
-        List<Reminder> completas = rDAO.listaTodos("true");
+        incompletas = rDAO.listaTodos("false");
+        completas = rDAO.listaTodos("true");
 
         TextView txtcompletos = (TextView) findViewById(R.id.txtnumerocompletos);
         txtcompletos.setText(String.valueOf(completas.size()));
@@ -93,6 +94,7 @@ public class ListReminder extends Activity {
                 adb.show();
             }
         });
+        //Atualizar numero de completos!
     }
 
     public void onClickBtAddReminder(View v) {

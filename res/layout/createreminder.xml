@@ -37,8 +37,8 @@
 	android:layout_height="22dp"
 	android:text="Descrição:"
 	android:textStyle="bold"
-	android:layout_x="6dp"
-	android:layout_y="79dp"/>
+	android:layout_x="30dp"
+	android:layout_y="28dp"/>
 <Button
 	android:id="@+id/buttonSalvar"
 	android:layout_width="63dp"
@@ -47,17 +47,12 @@
         android:onClick="onClickBtSalvarReminder"
 	android:layout_x="240dp"
 	android:layout_y="265dp" />
-<ScrollView
-	android:id="@+id/widget69"
-	android:layout_width="305dp"
-	android:layout_height="157dp"
-	android:layout_x="7dp"
-	android:layout_y="104dp">
 <EditText
 	android:id="@+id/txtdescricao"
-	android:layout_width="302dp"
-	android:layout_height="255dp" />
-</ScrollView>
+	android:layout_width="230dp"
+	android:layout_height="100dp"
+        android:layout_x="30dp"
+	android:layout_y="54dp"/>
 </AbsoluteLayout>
 <AbsoluteLayout
 	android:id="@+id/framerodape"
