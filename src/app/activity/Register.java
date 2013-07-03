@@ -41,9 +41,9 @@ public class Register extends Activity {
         String verifyPassword = verifypasswordRaw.getText().toString();
 
         User u = new User();
-        u.setEmail(email);
-        u.setNome(name);
-        u.setSenha(password);
+        u.setEmail(email.replaceAll("/", "-").replaceAll(" ", "2space"));
+        u.setNome(name.replaceAll("/", "-").replaceAll(" ", "2space"));
+        u.setSenha(password.replaceAll("/", "-").replaceAll(" ", "2space"));
 
         Syncronize sync = Syncronize.getSession();
         String id = sync.newUser(u);

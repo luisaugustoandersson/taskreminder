@@ -29,7 +29,7 @@ public class Syncronize {
 
     public String newUser(User user) {
         try {
-            URL urlObj = new URL(this.BASE_URL + "/users/create/" + user.getNome() + "/" + user.getEmail() + "/" + user.getSenha() + ".json");
+            URL urlObj = new URL(this.BASE_URL + "/users/create/" + user.getNome().replaceAll("/", "-").replaceAll(" ", "2space") + "/" + user.getEmail().replaceAll("/", "-").replaceAll(" ", "2space") + "/" + user.getSenha().replaceAll("/", "-").replaceAll(" ", "2space") + ".json");
 
             HttpURLConnection httpConn = (HttpURLConnection) urlObj.openConnection();
             httpConn.setRequestMethod("GET");
@@ -56,9 +56,9 @@ public class Syncronize {
         try {
             URL urlObj;
             if (create) {
-                urlObj = new URL(this.BASE_URL + "/sync/reminders/" + rem.getDescricao() + "/" + rem.getCompleto() + "/" + rem.getUser_id() + ".json");
+                urlObj = new URL(this.BASE_URL + "/sync/reminders/" + rem.getDescricao().replaceAll("/", "-").replaceAll(" ", "2space") + "/" + rem.getCompleto().replaceAll("/", "-").replaceAll(" ", "2space") + "/" + rem.getUser_id() + ".json");
             } else {
-                urlObj = new URL(this.BASE_URL + "/sync/reminders/" + rem.getCod() + "/" + rem.getDescricao() + "/" + rem.getCompleto() + "/" + rem.getUser_id() + ".json");
+                urlObj = new URL(this.BASE_URL + "/sync/reminders/" + rem.getCod() + "/" + rem.getDescricao().replaceAll("/", "-").replaceAll(" ", "2space") + "/" + rem.getCompleto().replaceAll("/", "-").replaceAll(" ", "2space") + "/" + rem.getUser_id() + ".json");
 
             }
             HttpURLConnection httpConn = (HttpURLConnection) urlObj.openConnection();
@@ -86,9 +86,9 @@ public class Syncronize {
         try {
             URL urlObj;
             if (create) {
-                urlObj = new URL(this.BASE_URL + "/sync/notes/" + note.getDescricao() + "/" + note.getUser_id() + ".json");
+                urlObj = new URL(this.BASE_URL + "/sync/notes/" + note.getDescricao().replaceAll("/", "-").replaceAll(" ", "2space") + "/" + note.getUser_id() + ".json");
             } else {
-                urlObj = new URL(this.BASE_URL + "/sync/notes/" + note.getCod() + "/" + note.getDescricao() + "/" + note.getUser_id() + ".json");
+                urlObj = new URL(this.BASE_URL + "/sync/notes/" + note.getCod() + "/" + note.getDescricao().replaceAll("/", "-").replaceAll(" ", "2space") + "/" + note.getUser_id() + ".json");
             }
             HttpURLConnection httpConn = (HttpURLConnection) urlObj.openConnection();
             httpConn.setRequestMethod("GET");
