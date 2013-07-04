@@ -36,10 +36,13 @@ public class DescriptionNote extends Activity {
         while (iterator.hasNext()){
             data.add(iterator.next().getDescricao());
         }
-        //mostra o conteudo da note na tela
-        //EditText txtMsgGravaTexto = (EditText) findViewById(R.id.txtDescricaoNote);
-        //txtMsgGravaTexto.setText(msg);
+
+        Intent intent = getIntent();
+        Bundle params = intent.getExtras();  
+        String selectedNote = params.getString("note");
+
+        EditText txtMsgGravaTexto = (EditText) findViewById(R.id.txtDescricaoNote);
+        txtMsgGravaTexto.setText(selectedNote);
         
-        //============================================================
     }
 }

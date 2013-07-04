@@ -70,6 +70,9 @@ public class ListNote extends Activity {
                 noteSelected = String.valueOf(listanotes.getItemAtPosition(position));
                 
                 Intent intent = new Intent(listclass , DescriptionNote.class);
+                Bundle params = new Bundle();
+                params.putString("note", noteSelected);
+                intent.putExtras(params);
                 startActivity(intent);
             }
         });
