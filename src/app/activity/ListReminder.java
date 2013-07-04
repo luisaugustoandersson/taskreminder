@@ -59,8 +59,8 @@ public class ListReminder extends Activity {
         incompletas = rDAO.listaTodos("false");
         completas = rDAO.listaTodos("true");
 
-        TextView txtcompletos = (TextView) findViewById(R.id.txtnumerocompletos);
-        txtcompletos.setText(String.valueOf(completas.size()));
+//        TextView txtcompletos = (TextView) findViewById(R.id.txtnumerocompletos);
+//        txtcompletos.setText(String.valueOf(completas.size()));
 
         listareminders = (ListView) findViewById(R.id.listtarefas);
 
